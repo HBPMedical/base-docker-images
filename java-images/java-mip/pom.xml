@@ -3,7 +3,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ch.lren.hbpmip</groupId>
+    <groupId>eu.hbp.mip.container</groupId>
     <artifactId>java-mip</artifactId>
     <packaging>jar</packaging>
     <version>0.0.1</version>
@@ -17,6 +17,30 @@
     </repositories>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.spullara.mustache.java</groupId>
+            <artifactId>compiler</artifactId>
+            <version>0.9.2</version>
+        </dependency>
 
         <dependency>
             <groupId>junit</groupId>
@@ -55,7 +79,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>ch.lren.hbpmip.Main</mainClass>
+                            <mainClass>eu.hbp.mip.container.Main</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

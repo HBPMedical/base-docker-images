@@ -3,7 +3,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ch.lren.hbpmip</groupId>
+    <groupId>eu.hbp.mip.container.rapiminer</groupId>
     <artifactId>java-rapidminer</artifactId>
     <packaging>jar</packaging>
     <version>0.0.1</version>
@@ -36,17 +36,9 @@
     <dependencies>
 
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.9</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.opendatagroup</groupId>
-            <artifactId>hadrian</artifactId>
-            <version>0.8.3</version>
-            <scope>test</scope>
+            <groupId>eu.hbp.mip.container</groupId>
+            <artifactId>java-mip</artifactId>
+            <version>0.0.1</version>
         </dependency>
 
         <dependency>
@@ -105,21 +97,10 @@
         </dependency>
 
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>2.7.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.7.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>2.7.0</version>
+            <groupId>com.opendatagroup</groupId>
+            <artifactId>hadrian</artifactId>
+            <version>0.8.3</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>

@@ -1,12 +1,12 @@
 java-mip-build:
-  build: Dockerfile.builder
+  build: Dockerfile.BUILD
   image: hbpmip/java-mip-build
   pre:
     - echo "Preparing java-mip-build"
   post:
      - echo "Finished java-mip-build"
      - echo "Building project..."
-     - docker run -ti --name build-cont -v ~/.m2:/root/.m2 hbpmip/java-mip-build mvn -f /dist package assembly:single -Dmaven.test.skip=true
+     - docker run -ti --name build-cont -v ~/.m2:/root/.m2 hbpmip/java-mip-build mvn -f /dist install package assembly:single -Dmaven.test.skip=true
      - docker cp build-cont:/dist/target/java-mip-0.0.1-jar-with-dependencies.jar ./java-mip.jar
      - docker rm build-cont
   test:

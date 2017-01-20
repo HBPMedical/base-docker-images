@@ -1,0 +1,74 @@
+{
+   'name': '{{value.name}}',
+   'doc': '{{value.doc}}',
+   'metadata': {
+      'docker_image': '{{value.docker_image}}'
+   },
+   'input': {
+      'doc': 'Input is the list of covariables and groups',
+      'name': 'DependentVariables',
+      'type': 'record'
+      'fields': [
+         {{#input_fields}}
+         {
+            'name': {{name}},
+            'type': {{#enum}}{
+               'type': 'enum',
+               'name': 'Enum_{{name}}'
+               'symbols': {{symbols}}
+            }{{/enum}}{{^enum}}'double'{{/enum}}
+         }{{^-last}},{{/-last}}
+         {{/input_fields}}
+      ]
+   },
+   'output': {
+      'doc': 'Output is the estimate of the variable',
+      'type': '{{type}}'
+   },
+   'cells': {
+      'query': {
+         'type': {
+            'doc': 'Definition of the query that has produced this model',
+            'name': 'Query',
+            'type': 'record',
+            'fields': [
+               {
+                  'doc': 'Dependent variable',
+                  'name': 'variable',
+                  'type': 'string',
+               },
+               {
+                  'doc': 'List of explanatory variables',
+                  'name': 'covariables',
+                  'type': {
+                     'type': 'array',
+                     'items': {
+                        'type': 'string'
+                     }
+                  }
+               },
+               {
+                  'doc': 'SQL query',
+                  'name': 'sql',
+                  'type': 'string'
+               },
+               {
+                  'doc': 'Number of records selected by the query',
+                  'name': 'count',
+                  'type': 'int'
+               }
+            ],
+         },
+         'init': {
+            'variable': '{{variable}}',
+            'covariables': {{covariables}},
+            'sql': '{{query}}',
+            'count': {{data.size}}
+         }
+      },
+      'error': '{{error}}',
+      'params': {{paramsCellPFA}}
+   },
+   'fcns': {{fcnsPFA}}
+   'action': {{actionPFA}}
+}
